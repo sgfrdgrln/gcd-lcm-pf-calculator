@@ -43,12 +43,21 @@ public class MathCalculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int num1, num2;
+        boolean isDigit = false;
+
+
+        while(!isDigit) {
+
+            try {
 
         System.out.print("Enter the first number: ");
-        int num1 = scanner.nextInt();
+        num1 = scanner.nextInt();
 
         System.out.print("Enter the second number: ");
-        int num2 = scanner.nextInt();
+        num2 = scanner.nextInt();
+
+        isDigit = true;
 
         // Calculate and display GCD
         int gcd = calculateGCD(num1, num2);
@@ -65,5 +74,21 @@ public class MathCalculator {
         System.out.println("Prime factors of " + num2 + " are: " + factors2);
 
         scanner.close();
+
+            }catch(InputMismatchException e) {
+
+                System.out.println("Enter a number only.");
+                scanner.nextLine();
+
+            }
+
+        
+
+        }
+
+
+        
+
+        
     }
 }
